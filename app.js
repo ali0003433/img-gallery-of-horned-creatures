@@ -20,9 +20,9 @@ let hornedAnimalArr = [];
 HornedAnimal.prototype.renderAnimal = imgObj => {
     let $animalClone = $('#image-template').clone();
     $main.append($animalClone);
-    $animalClone.attr('id', imgObj.title);
+    $animalClone.attr('id', imgObj.keyword);
     $animalClone.find('img').attr('src', imgObj.image_url);
-    $animalClone.find('p').text(imgObj.title);
+    $animalClone.find('p').text(imgObj.keyword);
 };
 
 $($selector).on('change', () => {
@@ -35,6 +35,6 @@ $.getJSON(apiURL, response => {
         let newAnimal = new HornedAnimal(val);
         hornedAnimalArr.push(newAnimal);
         newAnimal.renderAnimal(val);
-        $selector.append(`<option value=${newAnimal.title}>${newAnimal.title}</option>`)
+        $selector.append(`<option value=${newAnimal.keyword}>${newAnimal.keyword}</option>`);
     });
 });
