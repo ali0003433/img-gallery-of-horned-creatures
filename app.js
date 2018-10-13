@@ -17,7 +17,7 @@ const HornedAnimal = function(imageObj){
 
 let hornedAnimalArr = [];
 
-HornedAnimal.prototype.renderAnimal = imageObj => {
+HornedAnimal.prototype.renderAnimal = imgObj => {
     let $animalClone = $('#image-template').clone();
     $main.append($animalClone);
     $animalClone.attr('id', imgObj.title);
@@ -26,15 +26,15 @@ HornedAnimal.prototype.renderAnimal = imageObj => {
 };
 
 $($selector).on('change', () => {
-    $('section').hide()
-    $('section[id=${event.target.value}]'.show())
+    $('section').hide();
+    $(`section[id=${event.target.value}]`).show();
 });
 
 $.getJSON(apiURL, response => {
     response.forEach((val) => {
         let newAnimal = new HornedAnimal(val);
         hornedAnimalArr.push(newAnimal);
-        newAnimal.renderAnimal(val)
+        newAnimal.renderAnimal(val);
         $selector.append(`<option value=${newAnimal.title}>${newAnimal.title}</option>`)
     });
-})
+});
