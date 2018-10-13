@@ -21,7 +21,7 @@ lab-02-repository
 │   └── styles.css
 ├── data
 │   └── page-1.json
-├── index.html
+├── index.htmlf
 ├── js
 │    └── app.js
 └── README.md
