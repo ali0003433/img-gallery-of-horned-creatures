@@ -3,23 +3,31 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>s</title>
+    <title>Gallery</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <link href="https://fonts.googleapis.com/css?family=Niramit" rel="stylesheet">
 </head>
 <body>
         <h1>Gallery of Horned Creatures</h1>
-        <select id = 'image-filter'></select>
-   <main>
-       <section id = 'image-template'>
-           <img src = '' alt = ''/>
-           <p></p>
-       </section>
-   </main>
+        <select id='image-filter'></select>
+    <main>     
+ 
+    </main>
 </body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+  crossorigin="anonymous">
+</script>
+<script id='image-template' type='text/x-handlebars-template'>
+    <section id="{{keyword}}"> 
+        <img src="{{image_url}}" alt=""/>
+        <p>{{keyword}}</p>
+        <div>{{description}}</div>
+    </section>
+</script>
+
 <script src="app.js"></script>
 </html>

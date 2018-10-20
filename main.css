@@ -1,3 +1,10 @@
+* { 
+    background-color: grey;
+}
+
+body {
+    font-family: 'Niramit', sans-serif;
+}
 main {
     display: flex;
     flex-direction:row;
@@ -8,8 +15,6 @@ main {
 img {
     width: 200px;
     margin: 10px;
+    border-radius: 20px;
 }
 
-*{
-    background-color: grey;
-}
