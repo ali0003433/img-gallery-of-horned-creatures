@@ -48,7 +48,7 @@ $($selector).on('change', () => {
     console.log(event);
     $(`section[class=${event.target.value}]`).show();
 });
-
+let options = [];
 //page 2
 $($selector2).on('change', () => {
     $('section').hide();
@@ -56,34 +56,37 @@ $($selector2).on('change', () => {
 });
 //from the json file, pull the data then for each object in response array, instantiate it using HornedAnimal constructor function. Then push the new instance to hornedAnimalArr. Append the new instance to main
 
-
 $.getJSON(apiURL, response => {
+    sortAnimals(response);
     response.forEach((val) => {
         let newAnimal = new HornedAnimal(val);
         hornedAnimalArr.push(newAnimal);
         $main.append(newAnimal.renderAnimal(val));
-        $selector.append(`<option value=${newAnimal.keyword}>${newAnimal.keyword}</option>`);
+        if(!options.includes(`${newAnimal.keyword}`)) {
+            options.push(newAnimal.keyword);
+            $selector.append(`<option value=${newAnimal.keyword}>${newAnimal.keyword}</option>`);
+        }
     });
 });
 const sortAnimals = (arr) =>{
     arr.sort((a,b)=> {
-        if(a.keyword !== b.keyword){
-            return a.keyword > b.keyword;
-        } else return a.title > b.title;
+        if(a.keyword > b.keyword){
+            return 1;
+        } else return -1;
     });
     return arr;
 };
-sortAnimals(hornedAnimalArr);
-console.log(sortAnimals(hornedAnimalArr2));
-
-
+const options2 = [];
 //page 2
 $.getJSON(apiURL2, response2 => {
     response2.forEach((val) => {
         let newAnimal2 = new HornedAnimal(val);
         hornedAnimalArr2.push(newAnimal2);
         $main2.append(newAnimal2.renderAnimal2(val));
-        $selector2.append(`<option value=${newAnimal2.keyword}>${newAnimal2.keyword}</option>`);
+        if(!options2.includes(`${newAnimal2.keyword}`)){
+            options2.push(newAnimal2.keyword);
+            $selector2.append(`<option value=${newAnimal2.keyword}>${newAnimal2.keyword}</option>`);
+        }
     });
 });
 
