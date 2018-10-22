@@ -10,10 +10,19 @@
 </head>
 <body>
         <h1>Gallery of Horned Creatures</h1>
+        <h2>Page 1</h2>
         <select id='image-filter'></select>
     <main>     
  
+    
     </main>
+    <div class='pagination'>
+        <a href="#">&laquo;</a>
+        <a href ="index.html">1</a>
+        <a href ="page2.html">2</a>
+        <a href="#">&raquo;</a>
+    </div>
+
 </body>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0/handlebars.js"></script>
 <script
@@ -22,12 +31,13 @@
   crossorigin="anonymous">
 </script>
 <script id='image-template' type='text/x-handlebars-template'>
-    <section id="{{keyword}}"> 
+    <section id='section-2' class="{{keyword}}"> 
         <img src="{{image_url}}" alt=""/>
         <p>{{keyword}}</p>
+        <p>{{title}}</p>
         <div>{{description}}</div>
+        <p>{{horns}}</p>
     </section>
 </script>
-
 <script src="app.js"></script>
 </html>
